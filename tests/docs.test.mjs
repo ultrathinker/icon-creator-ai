@@ -45,7 +45,7 @@ test('the manifest declares the plugin the directory expects', () => {
   const manifest = JSON.parse(read('.claude-plugin/plugin.json'));
   assert.equal(manifest.name, 'icon-creator-ai');
   assert.equal(manifest.displayName, 'Icon Creator AI');
-  assert.equal(manifest.version, '0.1.7');
+  assert.equal(manifest.version, '0.1.8');
   assert.equal(manifest.license, 'MIT');
   assert.equal(manifest.author.name, 'ultrathinker');
   assert.equal(manifest.repository, 'https://github.com/ultrathinker/icon-creator-ai');
@@ -63,7 +63,10 @@ test('the manifest declares the plugin the directory expects', () => {
     assert.equal(userConfig[key].sensitive, true, `${key} must be sensitive`);
     assert.notEqual(userConfig[key].required, true, 'keys are optional: either provider works');
   }
-  assert.deepEqual(userConfig.provider.options, ['auto', 'google', 'openrouter']);
+  // The directory's manifest check refuses `options` in userConfig, so the allowed values live in the description and the
+  // server maps anything else to auto (tests/hardening.test.mjs covers the mapping).
+  assert.equal(userConfig.provider.options, undefined);
+  for (const value of ['auto', 'google', 'openrouter']) assert.ok(userConfig.provider.description.includes(value), `the description names ${value}`);
   assert.equal(userConfig.provider.default, 'auto');
 
   const server = manifest.mcpServers['icon-creator-ai'];

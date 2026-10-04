@@ -27,7 +27,7 @@ import * as google from './lib/provider-google.mjs';
 import * as openrouter from './lib/provider-openrouter.mjs';
 
 const SERVER_NAME = 'icon-creator-ai';
-const SERVER_VERSION = '0.1.7';
+const SERVER_VERSION = '0.1.8';
 const SUPPORTED_PROTOCOL_VERSIONS = ['2024-11-05', '2025-03-26', '2025-06-18'];
 const LATEST_PROTOCOL_VERSION = '2025-06-18';
 

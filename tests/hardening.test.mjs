@@ -267,3 +267,17 @@ test('six processes creating the same candidate file at the same instant: exactl
   assert.ok(fs.readFileSync(target).equals(Buffer.alloc(size, winner)), 'the file holds the winner\'s bytes, whole');
   assert.deepEqual(fs.readdirSync(dir), ['candidate-1.png'], 'no half-written temporary file is left behind');
 });
+
+// --- the provider setting is free text now (the directory refuses `options` in userConfig) -----------------------------------
+
+test('a provider setting that is not one of the three values means auto; case and spaces do not matter', async () => {
+  const setting = async (value) => {
+    const server = makeServer({ env: { ICON_AI_GOOGLE_KEY: 'gxgxgxgx-1111-gxgxgxgx-2222', ICON_AI_PROVIDER: value } });
+    const response = await server.handleMessage({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'check_setup', arguments: {} } });
+    return JSON.parse(response.result.content[0].text).providerSetting;
+  };
+  assert.equal(await setting('Banana'), 'auto');
+  assert.equal(await setting(' OpenRouter '), 'openrouter');
+  assert.equal(await setting('google'), 'google');
+  assert.equal(await setting(''), 'auto');
+});

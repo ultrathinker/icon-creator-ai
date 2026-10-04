@@ -163,8 +163,8 @@ this plugin produces. See [PRIVACY.md](PRIVACY.md).
 
 ## What was verified how
 
-- **Verified by running** (Windows 11, Node 24, `node --test tests/*.test.mjs`, 233 offline
-  tests at 0.1.7): the PNG/ICO/ICNS writers and parsers, the JPEG decoder (compared pixel by pixel with
+- **Verified by running** (Windows 11, Node 24, `node --test tests/*.test.mjs`, 234 offline
+  tests at 0.1.8): the PNG/ICO/ICNS writers and parsers, the JPEG decoder (compared pixel by pixel with
   libjpeg through Pillow: 4:4:4, 4:2:2, 4:2:0, grayscale, restart markers, sizes that are not a
   multiple of 8), background removal and resizing on synthetic candidates,
   pack layout and omissions, contact-sheet composition (also inspected by eye), the MCP protocol

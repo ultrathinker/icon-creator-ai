@@ -6,6 +6,13 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.8]
+
+### Fixed
+
+- The directory's manifest check refused `userConfig.provider.options`: the option list is gone (the description names the three
+  values and the server already maps anything else to `auto`).
+
 ## [0.1.7]
 
 ### Changed
