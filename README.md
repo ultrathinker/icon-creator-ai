@@ -195,8 +195,9 @@ this plugin produces. See [PRIVACY.md](PRIVACY.md).
   platform files of the packs. 0.1.5 to 0.1.7 were used by the author in real sessions (several draft rounds and contact
   sheets) but not re-run through the scripted live checks; the background carry-over, the cross-process exclusive
   create, the deadline and the soft-edge rim are covered by offline tests only, and `--variant` has not been run live.
-- **Verified by design only:** Node 18 (the CI matrix runs it on all three systems once the repository
-  is public) and the live provider paths on macOS and Linux.
+- **Verified in CI (2026-10-04, 0.1.7):** the offline suite passes on Windows, macOS and Linux with Node 18, 20,
+  22 and 24 (12 jobs).
+- **Verified by design only:** the live provider paths on macOS and Linux.
 
 ## Development
 
