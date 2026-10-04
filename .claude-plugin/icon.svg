@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Icon Creator AI: an image-model sparkle on a rounded gradient tile,
+       with a small transparency checkerboard as the base row. -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#2f6bff"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="url(#tile)"/>
+  <g fill="#ffffff">
+    <path d="M128 52c6 34 22 50 56 56-34 6-50 22-56 56-6-34-22-50-56-56 34-6 50-22 56-56z"/>
+    <path d="M186 132c3 17 11 25 28 28-17 3-25 11-28 28-3-17-11-25-28-28 17-3 25-11 28-28z" opacity="0.85"/>
+  </g>
+  <g>
+    <rect x="16" y="196" width="16" height="16" fill="#ffffff" opacity="0.35"/>
+    <rect x="32" y="212" width="16" height="16" fill="#ffffff" opacity="0.35"/>
+    <rect x="48" y="196" width="16" height="16" fill="#ffffff" opacity="0.2"/>
+    <rect x="64" y="212" width="16" height="16" fill="#ffffff" opacity="0.2"/>
+    <rect x="80" y="196" width="16" height="16" fill="#ffffff" opacity="0.35"/>
+    <rect x="96" y="212" width="16" height="16" fill="#ffffff" opacity="0.35"/>
+  </g>
+</svg>

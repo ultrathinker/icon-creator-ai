@@ -1,0 +1,64 @@
+{
+  "name": "icon-creator-ai",
+  "displayName": "Icon Creator AI",
+  "version": "0.1.7",
+  "description": "Ask an image model for many app-icon candidates at once (your own Google or OpenRouter key, at most 3 requests in flight), then turn every candidate into a finished cross-platform icon pack and review all candidates on a contact sheet at 64/32/16 px.",
+  "author": {
+    "name": "ultrathinker"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/ultrathinker/icon-creator-ai",
+  "homepage": "https://github.com/ultrathinker/icon-creator-ai",
+  "documentationUrl": "https://github.com/ultrathinker/icon-creator-ai#readme",
+  "supportUrl": "https://github.com/ultrathinker/icon-creator-ai/issues",
+  "privacyPolicyUrl": "https://github.com/ultrathinker/icon-creator-ai/blob/main/PRIVACY.md",
+  "icon": "./.claude-plugin/icon.svg",
+  "keywords": [
+    "icons",
+    "app-icon",
+    "favicon",
+    "image-generation",
+    "windows",
+    "macos",
+    "linux",
+    "design"
+  ],
+  "userConfig": {
+    "google_api_key": {
+      "type": "string",
+      "title": "Google API key",
+      "description": "Key from Google AI Studio (aistudio.google.com/apikey). Used for the Gemini image models. Leave empty to use OpenRouter instead.",
+      "sensitive": true
+    },
+    "openrouter_api_key": {
+      "type": "string",
+      "title": "OpenRouter API key",
+      "description": "Key from openrouter.ai/settings/keys. Used when Google is not configured or when the provider is set to openrouter.",
+      "sensitive": true
+    },
+    "provider": {
+      "type": "string",
+      "title": "Provider",
+      "description": "Which provider to use: auto (Google when its key is set, else OpenRouter), google, or openrouter.",
+      "options": ["auto", "google", "openrouter"],
+      "default": "auto"
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "description": "Optional model override, for example gemini-3-pro-image on Google or google/gemini-3.1-flash-image on OpenRouter. Leave empty for the current Nano Banana 2 model of the provider."
+    }
+  },
+  "mcpServers": {
+    "icon-creator-ai": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/server.mjs"],
+      "env": {
+        "ICON_AI_GOOGLE_KEY": "${user_config.google_api_key}",
+        "ICON_AI_OPENROUTER_KEY": "${user_config.openrouter_api_key}",
+        "ICON_AI_PROVIDER": "${user_config.provider}",
+        "ICON_AI_MODEL": "${user_config.model}"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "icon-creator-ai",
+  "owner": {
+    "name": "ultrathinker"
+  },
+  "description": "AI-generated app icon candidates, each turned into a finished cross-platform icon pack.",
+  "plugins": [
+    {
+      "name": "icon-creator-ai",
+      "source": ".",
+      "description": "Generate many icon candidates with an image model (your own Google or OpenRouter key), build a full icon pack from every candidate, and review them side by side at real sizes."
+    }
+  ]
+}
